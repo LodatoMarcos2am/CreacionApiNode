@@ -1,8 +1,8 @@
-import mongoose from 'mongoose';
-import express from 'express';
-import dotenv from 'dotenv';
+import express, { NextFunction, Request, Response } from "express";
+import dotenv from "dotenv";
 dotenv.config();
-import productRoutes from './routes/productroutes.ts';
+import mongoose from "mongoose";
+import productRoutes from "./routes/productroutes.ts";
 
 const MONGODB_URI = process.env.MONGODB_URI;
 if (!MONGODB_URI) {

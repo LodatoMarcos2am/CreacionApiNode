@@ -1,4 +1,6 @@
 import express from 'express';
+import { CreateProductDto } from '../dto/createProductDto.ts';
+import  validationMiddleware  from '../Middleware/middleware.ts';
 const router = express.Router();
 
 import {
@@ -13,6 +15,6 @@ router.get('/', getAllProducts);
 router.get('/:name', getProductByName);
 router.put('/:id', updateProduct);
 router.delete('/:id', deleteProduct);
-router.post('/', createProduct);
+router.post('/', validationMiddleware(CreateProductDto), createProduct);
 export const productRoutes = router;
 export default router;
